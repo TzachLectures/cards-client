@@ -109,7 +109,7 @@ export default function useCards() {
     } catch (error) {
       requestStatus(false, error, null);
     }
-  }, [user.id]);
+  }, [user]);
 
   //handleCreateCard
   const handleCreateCard = useCallback(
