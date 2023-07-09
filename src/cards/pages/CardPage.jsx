@@ -11,7 +11,7 @@ export default function CardPage() {
 
   useEffect(() => {
     handleGetCards();
-  }, []);
+  }, [handleGetCards]);
 
   const handleDelete = async (id) => {
     await handleDeleteCard(id);

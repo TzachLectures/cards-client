@@ -20,7 +20,7 @@ export default function MyCards() {
     } else {
       handleGetMyCards();
     }
-  }, [user]);
+  }, [user, handleGetMyCards]);
 
   const handleDelete = async (id) => {
     await handleDeleteCard(id);

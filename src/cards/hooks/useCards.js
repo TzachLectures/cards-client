@@ -37,7 +37,7 @@ export default function useCards() {
     } catch (error) {
       requestStatus(false, error, null);
     }
-  }, []);
+  }, [snack]);
 
   const handleGetMyCards = useCallback(async () => {
     try {
@@ -73,28 +73,33 @@ export default function useCards() {
   }, []);
 
   //handleUpdateCard
-  const handleUpdateCard = useCallback(async (cardId, cardFromClient) => {
-    try {
-      setLoading(true);
-      const card = await editCard(cardId, cardFromClient);
-      requestStatus(false, null, null, card);
-      snack("success", "The business card has been successfully updated");
-    } catch (error) {
-      requestStatus(false, error, null);
-    }
-  }, []);
+  const handleUpdateCard = useCallback(
+    async (cardId, cardFromClient) => {
+      try {
+        setLoading(true);
+        const card = await editCard(cardId, cardFromClient);
+        requestStatus(false, null, null, card);
+        snack("success", "The business card has been successfully updated");
+      } catch (error) {
+        requestStatus(false, error, null);
+      }
+    },
+    [snack]
+  );
 
   //handleLikeCard
-  const handleLikeCard = useCallback(async (cardId) => {
-    try {
-      console.log(cards);
-      const card = await changeLikeStatus(cardId);
-      requestStatus(false, null, cards, card);
-      snack("success", "The business card has been Liked");
-    } catch (error) {
-      requestStatus(false, error, null);
-    }
-  }, []);
+  const handleLikeCard = useCallback(
+    async (cardId) => {
+      try {
+        const card = await changeLikeStatus(cardId);
+        requestStatus(false, null, cards, card);
+        snack("success", "The business card has been Liked");
+      } catch (error) {
+        requestStatus(false, error, null);
+      }
+    },
+    [snack]
+  );
   //handleGetFavCards
   const handleGetFavCards = useCallback(async () => {
     try {
@@ -105,19 +110,22 @@ export default function useCards() {
     } catch (error) {
       requestStatus(false, error, null);
     }
-  }, []);
+  }, [user.id]);
 
   //handleCreateCard
-  const handleCreateCard = useCallback(async (cardFromClient) => {
-    try {
-      setLoading(true);
-      const card = await createCard(cardFromClient);
-      requestStatus(false, null, null, card);
-      snack("success", "A new business card has been created");
-    } catch (error) {
-      requestStatus(false, error, null);
-    }
-  }, []);
+  const handleCreateCard = useCallback(
+    async (cardFromClient) => {
+      try {
+        setLoading(true);
+        const card = await createCard(cardFromClient);
+        requestStatus(false, null, null, card);
+        snack("success", "A new business card has been created");
+      } catch (error) {
+        requestStatus(false, error, null);
+      }
+    },
+    [snack]
+  );
 
   const value = useMemo(() => {
     return { isLoading, cards, card, error };

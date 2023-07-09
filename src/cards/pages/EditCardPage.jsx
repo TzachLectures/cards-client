@@ -25,20 +25,25 @@ export default function EditCardPage() {
   //user - useUser (provider)
   const { user } = useUser();
   //useForm (initialForm,schema,onSubmit)
-  const { value, ...rest } = useForm(initialCardForm, cardSchema, () => {
-    handleUpdateCard(card._id, {
-      ...normalizeCard({ ...value.data }),
-      bizNumber: card.bizNumber,
-      user_id: card.user_id,
-    });
-  });
+  const { value, setData, ...rest } = useForm(
+    initialCardForm,
+    cardSchema,
+    () => {
+      handleUpdateCard(card._id, {
+        ...normalizeCard({ ...value.data }),
+        bizNumber: card.bizNumber,
+        user_id: card.user_id,
+      });
+    }
+  );
   //useEffect - update the form data to this card data
   useEffect(() => {
     handleGetCard(id).then((data) => {
       const modelCard = mapCardToModel(data);
-      rest.setData(modelCard);
+      setData(modelCard);
     });
-  }, []);
+  }, [handleGetCard, setData, id]);
+
   if (!user) return <Navigate replace to={ROUTES.CARDS} />;
 
   return (
