@@ -26,7 +26,7 @@ const useUsers = () => {
       setUser(user);
       setError(errorMessage);
     },
-    [setUser]
+    [setUser, setLoading, setError]
   );
 
   const handleLogin = useCallback(
@@ -42,7 +42,7 @@ const useUsers = () => {
         requestStatus(false, error, null);
       }
     },
-    [navigate]
+    [navigate, requestStatus, setToken]
   );
 
   const handleLogout = useCallback(() => {

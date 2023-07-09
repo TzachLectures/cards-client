@@ -91,8 +91,7 @@ export default function useCards() {
   const handleLikeCard = useCallback(
     async (cardId) => {
       try {
-        const card = await changeLikeStatus(cardId);
-        requestStatus(false, null, cards, card);
+        await changeLikeStatus(cardId);
         snack("success", "The business card has been Liked");
       } catch (error) {
         requestStatus(false, error, null);
