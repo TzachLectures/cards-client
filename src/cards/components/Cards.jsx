@@ -1,4 +1,4 @@
-import { Grid, Typography } from "@mui/material";
+import { Grid } from "@mui/material";
 import { arrayOf } from "prop-types";
 import React from "react";
 import cardType from "../models/types/cardType";

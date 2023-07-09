@@ -7,8 +7,6 @@ export default function Get2Countries() {
   const [country2Details, setCountry2Details] = useState("");
   const [country1, setCountry1] = useState("");
   const [country2, setCountry2] = useState("");
-  const countryName1 = useRef();
-  const countryName2 = useRef();
 
   const updateCountry1 = () => {
     setCountry1Details(country1);

@@ -1,8 +1,7 @@
-import { AppBar, Button, Container, Toolbar } from "@mui/material";
-import React, { useState } from "react";
-import { Navigate, Outlet } from "react-router-dom";
+import { AppBar, Container, Toolbar } from "@mui/material";
+import React from "react";
+import { Outlet } from "react-router-dom";
 import NavItem from "../routes/components/NavItem";
-import ROUTES from "../routes/routesModel";
 
 export default function SandBox() {
   //   const user = {};

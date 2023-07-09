@@ -1,9 +1,4 @@
-import {
-  BottomNavigation,
-  BottomNavigationAction,
-  Button,
-  Paper,
-} from "@mui/material";
+import { BottomNavigation, BottomNavigationAction, Paper } from "@mui/material";
 import React from "react";
 import { useNavigate } from "react-router-dom";
 import ROUTES from "../../routes/routesModel";

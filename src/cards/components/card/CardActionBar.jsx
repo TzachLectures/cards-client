@@ -12,7 +12,6 @@ import ROUTES from "../../../routes/routesModel";
 
 export default function CardActionBar({
   handleDelete,
-  handleEdit,
   handleLike,
   id,
   user_id,
@@ -29,7 +28,7 @@ export default function CardActionBar({
     <>
       <CardActions sx={{ paddingTop: 0, justifyContent: "space-between" }}>
         <Box>
-          {user?.isAdmin || user?.id == user_id ? (
+          {user?.isAdmin || user?.id === user_id ? (
             <>
               <IconButton
                 aria-label="Delete Card"
